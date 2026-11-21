@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Themes for T3 Code</title>
+<meta name="description" content="21 living themes for T3 Code. Preview each one, then open its page or repository.">
+<meta name="theme-color" content="#141416">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Themes for T3 Code">
+<meta property="og:description" content="21 living themes for T3 Code. Preview each one, then open its page or repository.">
+<meta property="og:url" content="https://joshsaintjacque.github.io/t3code-themes/">
+<meta property="og:image" content="https://joshsaintjacque.github.io/t3code-themes/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Themes for T3 Code">
+<meta name="twitter:description" content="21 living themes for T3 Code. Preview each one, then open its page or repository.">
+<meta name="twitter:image" content="https://joshsaintjacque.github.io/t3code-themes/assets/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='16' fill='%232466c3'/%3E%3Crect x='16' width='16' height='16' fill='%23ffd166'/%3E%3Crect y='16' width='16' height='16' fill='%23ef476f'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%2306a77d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+@property --ac{syntax:"<color>";inherits:true;initial-value:#ffd166}
+@property --acfg{syntax:"<color>";inherits:true;initial-value:#1d1a10}
+:root{
+  color-scheme:dark;
+  --ink:#141416;--panel:#1d1d20;--line:#303036;--fg:#f4f2ec;--dim:#a9a7a0;
+  --ac:#ffd166;--acfg:#1d1a10;
+  --gutter:clamp(16px,2.4vw,36px);
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  transition:--ac .45s ease,--acfg .45s ease;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.4;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,p{margin:0}
+
+.viewer{position:relative;display:grid;grid-template-columns:minmax(270px,330px) minmax(0,1fr);gap:clamp(24px,3.4vw,56px);padding:var(--gutter);min-height:100svh;isolation:isolate}
+.viewer::before{content:"";position:absolute;z-index:-1;inset:0 0 auto 22%;height:78%;background:radial-gradient(60% 62% at 58% 42%,color-mix(in srgb,var(--ac) 15%,transparent),transparent 72%);pointer-events:none}
+.rail{display:flex;flex-direction:column;gap:18px;min-width:0}
+.title h1{font-size:clamp(30px,2.7vw,38px);line-height:.98;font-weight:750;font-stretch:112%;letter-spacing:-.018em}
+.title h1 span{display:block}
+.title h1 b{display:block;font-size:2.65em;line-height:.86;font-weight:800;font-stretch:125%;letter-spacing:-.045em;margin-bottom:.12em}
+.title p{margin-top:10px;color:var(--dim);font-size:15px;max-width:30ch}
+
+.filters{display:flex;flex-wrap:wrap;gap:4px;margin:0 -2px 10px}
+.filters button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:4px 7px;font:500 10.5px/1.3 var(--mono);cursor:pointer;transition:color .15s,border-color .15s,background-color .15s}
+.filters button:hover{color:var(--fg);border-color:#55555d}
+.filters button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
+
+.index a{position:relative;display:flex;align-items:center;gap:10px;height:27px;text-decoration:none;color:var(--dim);border-radius:3px;transition:color .14s}
+.chip{flex:none;width:13px;height:13px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.2);background:linear-gradient(135deg,var(--c) 50%,var(--a) 50%)}
+.index .nm{font-size:19px;font-weight:620;font-stretch:72%;letter-spacing:.012em;text-transform:uppercase;white-space:nowrap;transition:font-stretch .22s cubic-bezier(.2,.8,.2,1)}
+.index .md{margin-left:auto;font:400 10.5px var(--mono);color:#85837d;opacity:0;transition:opacity .14s}
+.index a:hover,.index a[aria-current="true"]{color:var(--fg)}
+.index a:hover .md,.index a[aria-current="true"] .md{opacity:1}
+.index a[aria-current="true"] .nm{font-stretch:118%;font-weight:720}
+.index .bar{position:absolute;left:23px;right:0;bottom:1px;height:1px;background:var(--fg);transform:scaleX(0);transform-origin:left;opacity:.75}
+[hidden]{display:none!important}
+
+.screen{min-width:0;max-width:calc((100svh - 188px)*1.96);width:100%;justify-self:center;align-self:start}
+.stage{position:relative;margin:0;aspect-ratio:960/490;overflow:hidden;border-radius:8px 8px 0 0;background:var(--panel);box-shadow:0 24px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.1)}
+.stage img,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.stage video{opacity:0;transition:opacity .28s ease}
+.stage video.on{opacity:1}
+.toggle{position:absolute;z-index:2;right:10px;top:10px;appearance:none;border:0;border-radius:999px;padding:6px 12px;background:rgba(14,14,16,.78);color:#f4f2ec;font:500 11.5px/1.2 var(--mono);cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.toggle:hover{background:#0e0e10}
+.strip{display:flex;height:9px;border-radius:0 0 8px 8px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.strip i{flex:1;transition:background-color .4s ease}
+.caption{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 28px;align-items:start;padding-top:16px}
+.caption h2{font-size:clamp(34px,4.5vw,66px);line-height:.94;font-weight:800;font-stretch:125%;letter-spacing:-.035em;text-transform:uppercase;overflow-wrap:anywhere}
+.meta{font:400 12px var(--mono);color:var(--dim);margin-bottom:7px}
+.line{display:none;color:var(--dim);font-size:16px;margin-top:7px}
+.desc{color:var(--dim);font-size:16px;line-height:1.45;margin-top:9px;max-width:68ch;min-height:4.35em}
+.actions{display:flex;gap:8px;align-self:start;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 17px;border-radius:6px;text-decoration:none;font-weight:680;font-size:15px;font-stretch:96%;white-space:nowrap;transition:transform .14s cubic-bezier(.2,.8,.2,1),background-color .15s}
+.btn:active{transform:scale(.97)}
+.btn.go{background:var(--ac);color:var(--acfg);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.btn.alt{box-shadow:inset 0 0 0 1px #4a4a51}
+.btn.alt:hover{background:#26262a}
+
+.wall{padding:clamp(32px,4vw,56px) var(--gutter) var(--gutter);border-top:1px solid var(--line)}
+.wall-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:20px}
+.wall h2{font-size:clamp(25px,2.4vw,34px);font-weight:760;font-stretch:115%;letter-spacing:-.022em}
+.wall-head span{font:400 12px var(--mono);color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,312px),1fr));gap:30px 20px}
+.card{min-width:0}
+.shot{position:relative;display:block;aspect-ratio:960/490;overflow:hidden;border-radius:6px;background:var(--panel);box-shadow:0 0 0 1px rgba(255,255,255,.1);transition:box-shadow .16s}
+.shot:hover,.shot:focus-visible{box-shadow:0 0 0 1px rgba(255,255,255,.42)}
+.shot img,.shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.shot video{opacity:0;transition:opacity .22s ease}
+.shot video.on{opacity:1}
+.tiles{display:flex;height:4px;margin-top:7px;border-radius:2px;overflow:hidden}
+.tiles i{flex:1}
+.card-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:10px}
+.card h3{font-size:19px;line-height:1.1;font-weight:700;font-stretch:104%;letter-spacing:-.008em}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.tag{flex:none;font:400 11px var(--mono);color:var(--dim)}
+.card p{color:var(--dim);font-size:14.5px;margin-top:3px}
+.links{display:flex;gap:16px;margin-top:6px}
+.links a{display:inline-flex;align-items:center;min-height:32px;font:500 12.5px var(--mono);text-decoration:underline;text-decoration-color:#5c5c63;text-underline-offset:3px;transition:text-decoration-color .14s}
+.links a:hover{text-decoration-color:var(--fg)}
+
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding:24px var(--gutter) 30px;border-top:1px solid var(--line);margin-top:26px;color:var(--dim);font:400 12px/1.5 var(--mono)}
+
+@media (max-width:980px){
+  .viewer{display:flex;flex-direction:column;min-height:0;gap:18px}
+  .rail{display:contents}
+  .title{order:1}.screen{order:2;max-width:none}.picker{order:3;min-width:0}
+  .title h1 span{display:inline}
+  .desc{display:none}.line{display:block}
+  .title h1 b{display:inline;font-size:1em;letter-spacing:-.018em;margin:0;font-stretch:112%;font-weight:750}
+  .title p{max-width:none}
+  .picker{display:flex;flex-direction:column;gap:12px}
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gutter)*-1);padding:2px var(--gutter)}
+  .filters::-webkit-scrollbar,.index::-webkit-scrollbar{display:none}
+  .filters button{flex:none;padding:7px 12px;font-size:12px}
+  .index{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;scroll-padding:0 var(--gutter);margin:0 calc(var(--gutter)*-1);padding:2px var(--gutter)}
+  .index li{flex:none}
+  .index a{height:40px;padding:0 12px 0 10px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);border-radius:6px;color:var(--fg)}
+  .index a[aria-current="true"]{box-shadow:inset 0 0 0 1.5px var(--fg)}
+  .index .nm,.index a[aria-current="true"] .nm{font-size:16px;font-stretch:82%;font-weight:640}
+  .index .md,.index .bar{display:none}
+  .caption{grid-template-columns:minmax(0,1fr)}
+  .actions{margin-top:6px}
+  .actions .btn{flex:1}
+  .toggle{right:7px;top:7px;padding:5px 9px}
+}
+@media (max-width:560px){
+  .grid{gap:18px}
+  .card{display:grid;grid-template-columns:42% minmax(0,1fr);column-gap:12px}
+  .shot{grid-row:1 / span 4;aspect-ratio:auto;height:100%;min-height:112px}
+  .tiles{display:none}
+  .card-top{margin-top:0}
+  .card h3{font-size:17px}
+  .tag{display:none}
+  .card p{font-size:13.5px;line-height:1.3}
+  .links{margin-top:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  :root{transition:none}
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<main>
+<section class="viewer" aria-label="Theme preview">
+  <div class="rail">
+    <header class="title">
+      <h1><b>21</b> <span>themes for</span> <span>T3 Code</span></h1>
+      <p>Each one moves with your agent, then settles when the turn is done.</p>
+    </header>
+    <nav class="picker" aria-label="Choose a theme">
+      <div class="filters" role="group" aria-label="Filter themes">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="energetic" aria-pressed="false">Energetic</button>
+        <button type="button" data-filter="calm" aria-pressed="false">Calm</button>
+        <button type="button" data-filter="creative" aria-pressed="false">Creative</button>
+        <button type="button" data-filter="dark" aria-pressed="false">Dark</button>
+        <button type="button" data-filter="light" aria-pressed="false">Light</button>
+      </div>
+      <ol class="index">
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-blueprint/" data-slug="blueprint" aria-current="true"><span class="chip" style="--c:#2466c3;--a:#ffd166"></span><span class="nm">Blueprint</span><span class="md">Creative</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-misprint/" data-slug="misprint"><span class="chip" style="--c:#f5eddb;--a:#ff2e88"></span><span class="nm">Misprint</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-departures/" data-slug="departures"><span class="chip" style="--c:#0d0c0a;--a:#ffb000"></span><span class="nm">Departures</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-reel-to-reel/" data-slug="reel-to-reel"><span class="chip" style="--c:#1b1511;--a:#ffb52e"></span><span class="nm">Reel to Reel</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-squiggle/" data-slug="squiggle"><span class="chip" style="--c:#f6f2ff;--a:#2f3cff"></span><span class="nm">Squiggle</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-molten/" data-slug="molten"><span class="chip" style="--c:#170a2b;--a:#ff8a3d"></span><span class="nm">Molten</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-marquee/" data-slug="marquee"><span class="chip" style="--c:#2b0a11;--a:#e9b948"></span><span class="nm">Marquee</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-tilt/" data-slug="tilt"><span class="chip" style="--c:#0c0f1f;--a:#ff5a36"></span><span class="nm">Tilt</span><span class="md">Energetic</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-observatory/" data-slug="observatory"><span class="chip" style="--c:#0b1029;--a:#9ec3ff"></span><span class="nm">Observatory</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-washi/" data-slug="washi"><span class="chip" style="--c:#f3eee2;--a:#b3321f"></span><span class="nm">Washi</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-sandgarden/" data-slug="sandgarden"><span class="chip" style="--c:#f1e9d6;--a:#4a5e3e"></span><span class="nm">Sandgarden</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-aurora/" data-slug="aurora"><span class="chip" style="--c:#050d14;--a:#4ff0ab"></span><span class="nm">Aurora</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-folio/" data-slug="folio"><span class="chip" style="--c:#e9e5da;--a:#24221e"></span><span class="nm">Folio</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-fogbank/" data-slug="fogbank"><span class="chip" style="--c:#e8e7f0;--a:#474c8a"></span><span class="nm">Fogbank</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-rainglass/" data-slug="rainglass"><span class="chip" style="--c:#0f1b2a;--a:#f2b366"></span><span class="nm">Rainglass</span><span class="md">Calm</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-darkroom/" data-slug="darkroom"><span class="chip" style="--c:#170b0c;--a:#ff5a47"></span><span class="nm">Darkroom</span><span class="md">Creative</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-agar/" data-slug="agar"><span class="chip" style="--c:#f8f4e6;--a:#17695c"></span><span class="nm">Agar</span><span class="md">Creative</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-clerestory/" data-slug="clerestory"><span class="chip" style="--c:#16121d;--a:#f2b84b"></span><span class="nm">Clerestory</span><span class="md">Creative</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-primary/" data-slug="primary"><span class="chip" style="--c:#f3eee2;--a:#1c4fa1"></span><span class="nm">Primary</span><span class="md">Creative</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-phosphor/" data-slug="phosphor"><span class="chip" style="--c:#070f12;--a:#4fe8cc"></span><span class="nm">Phosphor</span><span class="md">Creative</span><span class="bar"></span></a></li>
+        <li><a href="https://joshsaintjacque.github.io/t3code-theme-contour/" data-slug="contour"><span class="chip" style="--c:#f3edda;--a:#c0401a"></span><span class="nm">Contour</span><span class="md">Creative</span><span class="bar"></span></a></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="screen">
+    <figure class="stage">
+      <img id="poster" src="assets/posters/blueprint.webp" width="960" height="490" alt="Blueprint theme in T3 Code" fetchpriority="high">
+      <video id="video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+      <button class="toggle" id="toggle" type="button">Pause</button>
+    </figure>
+    <div class="strip" id="strip" aria-hidden="true"><i style="background-color:#2466c3"></i><i style="background-color:#265a9c"></i><i style="background-color:#004f9c"></i><i style="background-color:#ffd166"></i><i style="background-color:#eef6ff"></i></div>
+    <div class="caption" aria-live="polite">
+      <div>
+        <div class="meta" id="meta">Creative · dark</div>
+        <h2 id="name">Blueprint</h2>
+        <p class="desc" id="desc">A cyanotype theme for T3 Code. While your agent works, a pen plotter inks a part in the margin. When the turn ends, the sheet holds still.</p>
+        <p class="line" id="line">A pen plotter inks a part in the margin</p>
+      </div>
+      <div class="actions">
+        <a class="btn go" id="site" href="https://joshsaintjacque.github.io/t3code-theme-blueprint/">Theme page <span aria-hidden="true">→</span></a>
+        <a class="btn alt" id="repo" href="https://github.com/joshsaintjacque/t3code-theme-blueprint">Repository</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wall" aria-labelledby="wall-title">
+  <div class="wall-head">
+    <h2 id="wall-title">The full set</h2>
+    <span id="shown">21 themes</span>
+  </div>
+  <div class="grid" id="grid">
+    <article class="card" data-slug="blueprint">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-blueprint/" aria-label="Preview Blueprint"><img src="assets/posters/blueprint.webp" width="960" height="490" loading="lazy" decoding="async" alt="Blueprint theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#2466c3"></i><i style="background-color:#265a9c"></i><i style="background-color:#004f9c"></i><i style="background-color:#ffd166"></i><i style="background-color:#eef6ff"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-blueprint/">Blueprint</a></h3><span class="tag">Creative · dark</span></div>
+      <p>A pen plotter inks a part in the margin</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-blueprint/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-blueprint">Repository</a></div>
+    </article>
+    <article class="card" data-slug="misprint">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-misprint/" aria-label="Preview Misprint"><img src="assets/posters/misprint.webp" width="960" height="490" loading="lazy" decoding="async" alt="Misprint theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f5eddb"></i><i style="background-color:#efe4ca"></i><i style="background-color:#ffd6e7"></i><i style="background-color:#ff2e88"></i><i style="background-color:#141a45"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-misprint/">Misprint</a></h3><span class="tag">Energetic · light</span></div>
+      <p>Two ink plates slip out of register</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-misprint/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-misprint">Repository</a></div>
+    </article>
+    <article class="card" data-slug="departures">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-departures/" aria-label="Preview Departures"><img src="assets/posters/departures.webp" width="960" height="490" loading="lazy" decoding="async" alt="Departures theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#0d0c0a"></i><i style="background-color:#0a0908"></i><i style="background-color:#ece2c8"></i><i style="background-color:#ffb000"></i><i style="background-color:#f2e9d2"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-departures/">Departures</a></h3><span class="tag">Energetic · dark</span></div>
+      <p>A split-flap board rattles to BOARDING</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-departures/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-departures">Repository</a></div>
+    </article>
+    <article class="card" data-slug="reel-to-reel">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-reel-to-reel/" aria-label="Preview Reel to Reel"><img src="assets/posters/reel-to-reel.webp" width="960" height="490" loading="lazy" decoding="async" alt="Reel to Reel theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#1b1511"></i><i style="background-color:#2e1c10"></i><i style="background-color:#3d2517"></i><i style="background-color:#ffb52e"></i><i style="background-color:#f3e7cf"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-reel-to-reel/">Reel to Reel</a></h3><span class="tag">Energetic · dark</span></div>
+      <p>VU needles bounce and the reels turn</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-reel-to-reel/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-reel-to-reel">Repository</a></div>
+    </article>
+    <article class="card" data-slug="squiggle">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-squiggle/" aria-label="Preview Squiggle"><img src="assets/posters/squiggle.webp" width="960" height="490" loading="lazy" decoding="async" alt="Squiggle theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f6f2ff"></i><i style="background-color:#ffee9a"></i><i style="background-color:#ffffff"></i><i style="background-color:#2f3cff"></i><i style="background-color:#1b1340"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-squiggle/">Squiggle</a></h3><span class="tag">Energetic · light</span></div>
+      <p>Memphis confetti bobs and tumbles</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-squiggle/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-squiggle">Repository</a></div>
+    </article>
+    <article class="card" data-slug="molten">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-molten/" aria-label="Preview Molten"><img src="assets/posters/molten.webp" width="960" height="490" loading="lazy" decoding="async" alt="Molten theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#170a2b"></i><i style="background-color:#1c0c35"></i><i style="background-color:#4b1b77"></i><i style="background-color:#ff8a3d"></i><i style="background-color:#f8eefc"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-molten/">Molten</a></h3><span class="tag">Energetic · dark</span></div>
+      <p>Wax lamps heat up and rise</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-molten/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-molten">Repository</a></div>
+    </article>
+    <article class="card" data-slug="marquee">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-marquee/" aria-label="Preview Marquee"><img src="assets/posters/marquee.webp" width="960" height="490" loading="lazy" decoding="async" alt="Marquee theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#2b0a11"></i><i style="background-color:#1e070c"></i><i style="background-color:#4a1320"></i><i style="background-color:#e9b948"></i><i style="background-color:#f7ebd5"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-marquee/">Marquee</a></h3><span class="tag">Energetic · dark</span></div>
+      <p>House lights dim and the bulbs chase</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-marquee/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-marquee">Repository</a></div>
+    </article>
+    <article class="card" data-slug="tilt">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-tilt/" aria-label="Preview Tilt"><img src="assets/posters/tilt.webp" width="960" height="490" loading="lazy" decoding="async" alt="Tilt theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#0c0f1f"></i><i style="background-color:#0a0d1b"></i><i style="background-color:#1b2250"></i><i style="background-color:#ff5a36"></i><i style="background-color:#eef1fb"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-tilt/">Tilt</a></h3><span class="tag">Energetic · dark</span></div>
+      <p>Pinball lights run and the score counts up</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-tilt/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-tilt">Repository</a></div>
+    </article>
+    <article class="card" data-slug="observatory">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-observatory/" aria-label="Preview Observatory"><img src="assets/posters/observatory.webp" width="960" height="490" loading="lazy" decoding="async" alt="Observatory theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#0b1029"></i><i style="background-color:#0a0f26"></i><i style="background-color:#1a2352"></i><i style="background-color:#9ec3ff"></i><i style="background-color:#e6e9f8"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-observatory/">Observatory</a></h3><span class="tag">Calm · dark</span></div>
+      <p>Star plates draw while a reticle tracks</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-observatory/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-observatory">Repository</a></div>
+    </article>
+    <article class="card" data-slug="washi">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-washi/" aria-label="Preview Washi"><img src="assets/posters/washi.webp" width="960" height="490" loading="lazy" decoding="async" alt="Washi theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f3eee2"></i><i style="background-color:#e9e0cb"></i><i style="background-color:#f9f5ea"></i><i style="background-color:#b3321f"></i><i style="background-color:#28231f"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-washi/">Washi</a></h3><span class="tag">Calm · light</span></div>
+      <p>Ink blooms, and a seal stamps at the end</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-washi/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-washi">Repository</a></div>
+    </article>
+    <article class="card" data-slug="sandgarden">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-sandgarden/" aria-label="Preview Sandgarden"><img src="assets/posters/sandgarden.webp" width="960" height="490" loading="lazy" decoding="async" alt="Sandgarden theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f1e9d6"></i><i style="background-color:#e7ddc4"></i><i style="background-color:#e3d8bc"></i><i style="background-color:#4a5e3e"></i><i style="background-color:#2b2822"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-sandgarden/">Sandgarden</a></h3><span class="tag">Calm · light</span></div>
+      <p>A rake draws furrows around the stones</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-sandgarden/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-sandgarden">Repository</a></div>
+    </article>
+    <article class="card" data-slug="aurora">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-aurora/" aria-label="Preview Aurora"><img src="assets/posters/aurora.webp" width="960" height="490" loading="lazy" decoding="async" alt="Aurora theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#050d14"></i><i style="background-color:#070f17"></i><i style="background-color:#10213a"></i><i style="background-color:#4ff0ab"></i><i style="background-color:#e6f2ef"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-aurora/">Aurora</a></h3><span class="tag">Calm · dark</span></div>
+      <p>Curtains of light swell overhead</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-aurora/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-aurora">Repository</a></div>
+    </article>
+    <article class="card" data-slug="folio">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-folio/" aria-label="Preview Folio"><img src="assets/posters/folio.webp" width="960" height="490" loading="lazy" decoding="async" alt="Folio theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#e9e5da"></i><i style="background-color:#e5e0d4"></i><i style="background-color:#e2dccd"></i><i style="background-color:#24221e"></i><i style="background-color:#1c1b18"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-folio/">Folio</a></h3><span class="tag">Calm · light</span></div>
+      <p>E-paper dots fill in whole steps</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-folio/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-folio">Repository</a></div>
+    </article>
+    <article class="card" data-slug="fogbank">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-fogbank/" aria-label="Preview Fogbank"><img src="assets/posters/fogbank.webp" width="960" height="490" loading="lazy" decoding="async" alt="Fogbank theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#e8e7f0"></i><i style="background-color:#dddbea"></i><i style="background-color:#dad8ea"></i><i style="background-color:#474c8a"></i><i style="background-color:#2a2940"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-fogbank/">Fogbank</a></h3><span class="tag">Calm · light</span></div>
+      <p>A lighthouse beam sweeps through mist</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-fogbank/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-fogbank">Repository</a></div>
+    </article>
+    <article class="card" data-slug="rainglass">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-rainglass/" aria-label="Preview Rainglass"><img src="assets/posters/rainglass.webp" width="960" height="490" loading="lazy" decoding="async" alt="Rainglass theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#0f1b2a"></i><i style="background-color:#0b1420"></i><i style="background-color:#1b3049"></i><i style="background-color:#f2b366"></i><i style="background-color:#dce8f4"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-rainglass/">Rainglass</a></h3><span class="tag">Calm · dark</span></div>
+      <p>Rain thickens on a night window</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-rainglass/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-rainglass">Repository</a></div>
+    </article>
+    <article class="card" data-slug="darkroom">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-darkroom/" aria-label="Preview Darkroom"><img src="assets/posters/darkroom.webp" width="960" height="490" loading="lazy" decoding="async" alt="Darkroom theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#170b0c"></i><i style="background-color:#110808"></i><i style="background-color:#dcc3b6"></i><i style="background-color:#ff5a47"></i><i style="background-color:#f4e4dd"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-darkroom/">Darkroom</a></h3><span class="tag">Creative · dark</span></div>
+      <p>A print develops under the safelight</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-darkroom/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-darkroom">Repository</a></div>
+    </article>
+    <article class="card" data-slug="agar">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-agar/" aria-label="Preview Agar"><img src="assets/posters/agar.webp" width="960" height="490" loading="lazy" decoding="async" alt="Agar theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f8f4e6"></i><i style="background-color:#efd9a0"></i><i style="background-color:#dcebe3"></i><i style="background-color:#17695c"></i><i style="background-color:#2a2316"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-agar/">Agar</a></h3><span class="tag">Creative · light</span></div>
+      <p>Colonies grow on culture plates</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-agar/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-agar">Repository</a></div>
+    </article>
+    <article class="card" data-slug="clerestory">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-clerestory/" aria-label="Preview Clerestory"><img src="assets/posters/clerestory.webp" width="960" height="490" loading="lazy" decoding="async" alt="Clerestory theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#16121d"></i><i style="background-color:#17131f"></i><i style="background-color:#1e2d5e"></i><i style="background-color:#f2b84b"></i><i style="background-color:#f0e8d8"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-clerestory/">Clerestory</a></h3><span class="tag">Creative · dark</span></div>
+      <p>Stained glass kindles and light shafts cross</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-clerestory/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-clerestory">Repository</a></div>
+    </article>
+    <article class="card" data-slug="primary">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-primary/" aria-label="Preview Primary"><img src="assets/posters/primary.webp" width="960" height="490" loading="lazy" decoding="async" alt="Primary theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f3eee2"></i><i style="background-color:#ece5d3"></i><i style="background-color:#1c4fa1"></i><i style="background-color:#1c4fa1"></i><i style="background-color:#16140f"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-primary/">Primary</a></h3><span class="tag">Creative · light</span></div>
+      <p>Bauhaus shapes recompose</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-primary/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-primary">Repository</a></div>
+    </article>
+    <article class="card" data-slug="phosphor">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-phosphor/" aria-label="Preview Phosphor"><img src="assets/posters/phosphor.webp" width="960" height="490" loading="lazy" decoding="async" alt="Phosphor theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#070f12"></i><i style="background-color:#0a1519"></i><i style="background-color:#0f2428"></i><i style="background-color:#4fe8cc"></i><i style="background-color:#d9f4f0"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-phosphor/">Phosphor</a></h3><span class="tag">Creative · dark</span></div>
+      <p>An oscilloscope traces Lissajous figures</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-phosphor/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-phosphor">Repository</a></div>
+    </article>
+    <article class="card" data-slug="contour">
+      <a class="shot" href="https://joshsaintjacque.github.io/t3code-theme-contour/" aria-label="Preview Contour"><img src="assets/posters/contour.webp" width="960" height="490" loading="lazy" decoding="async" alt="Contour theme in T3 Code"></a>
+      <div class="tiles" aria-hidden="true"><i style="background-color:#f3edda"></i><i style="background-color:#e7dec2"></i><i style="background-color:#e6dcbd"></i><i style="background-color:#c0401a"></i><i style="background-color:#2b2519"></i></div>
+      <div class="card-top"><h3><a href="https://joshsaintjacque.github.io/t3code-theme-contour/">Contour</a></h3><span class="tag">Creative · light</span></div>
+      <p>Map contours shift, and a pin drops at the end</p>
+      <div class="links"><a href="https://joshsaintjacque.github.io/t3code-theme-contour/">Theme page</a><a href="https://github.com/joshsaintjacque/t3code-theme-contour">Repository</a></div>
+    </article>
+  </div>
+</section>
+</main>
+<footer>
+  <span>Independent themes, not affiliated with T3 Code.</span>
+  <span><a href="https://github.com/joshsaintjacque/t3code-themes">Source on GitHub</a> · MIT</span>
+</footer>
+
+<script>
+(() => {
+  const THEMES = [{"slug":"blueprint","name":"Blueprint","appearance":"dark","mood":"creative","line":"A pen plotter inks a part in the margin","description":"A cyanotype theme for T3 Code. While your agent works, a pen plotter inks a part in the margin. When the turn ends, the sheet holds still.","site":"https://joshsaintjacque.github.io/t3code-theme-blueprint/","repo":"https://github.com/joshsaintjacque/t3code-theme-blueprint","swatches":["#2466c3","#265a9c","#004f9c","#ffd166","#eef6ff"],"accent":"#ffd166","accentForeground":"#1d1a10"},{"slug":"misprint","name":"Misprint","appearance":"light","mood":"energetic","line":"Two ink plates slip out of register","description":"A two-ink print theme for T3 Code: fluoro pink and teal on cream stock. The inks slip out of register while your agent works and snap back when it stops.","site":"https://joshsaintjacque.github.io/t3code-theme-misprint/","repo":"https://github.com/joshsaintjacque/t3code-theme-misprint","swatches":["#f5eddb","#efe4ca","#ffd6e7","#ff2e88","#141a45"],"accent":"#ff2e88","accentForeground":"#141a45"},{"slug":"departures","name":"Departures","appearance":"dark","mood":"energetic","line":"A split-flap board rattles to BOARDING","description":"A dark T3 Code theme in black, cream and amber. Flaps rattle while the agent works; the board reads BOARDING, then ON TIME.","site":"https://joshsaintjacque.github.io/t3code-theme-departures/","repo":"https://github.com/joshsaintjacque/t3code-theme-departures","swatches":["#0d0c0a","#0a0908","#ece2c8","#ffb000","#f2e9d2"],"accent":"#ffb000","accentForeground":"#17110a"},{"slug":"reel-to-reel","name":"Reel to Reel","appearance":"dark","mood":"energetic","line":"VU needles bounce and the reels turn","description":"A 1970s tape-deck theme for T3 Code. Walnut, brushed aluminium and amber VU meters. While your agent works the reels turn and the needles bounce; when it stops they settle.","site":"https://joshsaintjacque.github.io/t3code-theme-reel-to-reel/","repo":"https://github.com/joshsaintjacque/t3code-theme-reel-to-reel","swatches":["#1b1511","#2e1c10","#3d2517","#ffb52e","#f3e7cf"],"accent":"#ffb52e","accentForeground":"#1b1206"},{"slug":"squiggle","name":"Squiggle","appearance":"light","mood":"energetic","line":"Memphis confetti bobs and tumbles","description":"A loud, light theme for T3 Code. Confetti, squiggles and terrazzo sit in the margins and start to bob and tumble while your agent works.","site":"https://joshsaintjacque.github.io/t3code-theme-squiggle/","repo":"https://github.com/joshsaintjacque/t3code-theme-squiggle","swatches":["#f6f2ff","#ffee9a","#ffffff","#2f3cff","#1b1340"],"accent":"#2f3cff","accentForeground":"#ffffff"},{"slug":"molten","name":"Molten","appearance":"dark","mood":"energetic","line":"Wax lamps heat up and rise","description":"A wax lamp theme for T3 Code. Deep violet glass, orange and magenta wax that drifts at idle and rises and merges while your agent works.","site":"https://joshsaintjacque.github.io/t3code-theme-molten/","repo":"https://github.com/joshsaintjacque/t3code-theme-molten","swatches":["#170a2b","#1c0c35","#4b1b77","#ff8a3d","#f8eefc"],"accent":"#ff8a3d","accentForeground":"#2a0d03"},{"slug":"marquee","name":"Marquee","appearance":"dark","mood":"energetic","line":"House lights dim and the bulbs chase","description":"A theatre-marquee theme for T3 Code. Oxblood velvet and gilt, with a bulb chase that runs while your agent works and house lights that dim when a turn starts.","site":"https://joshsaintjacque.github.io/t3code-theme-marquee/","repo":"https://github.com/joshsaintjacque/t3code-theme-marquee","swatches":["#2b0a11","#1e070c","#4a1320","#e9b948","#f7ebd5"],"accent":"#e9b948","accentForeground":"#2a0a10"},{"slug":"tilt","name":"Tilt","appearance":"dark","mood":"energetic","line":"Pinball lights run and the score counts up","description":"A pinball playfield theme for T3 Code. Idle runs a slow attract glow. While your agent works the inserts strobe, the ladder fills and the score reels tick. Done returns the ball to the lane.","site":"https://joshsaintjacque.github.io/t3code-theme-tilt/","repo":"https://github.com/joshsaintjacque/t3code-theme-tilt","swatches":["#0c0f1f","#0a0d1b","#1b2250","#ff5a36","#eef1fb"],"accent":"#ff5a36","accentForeground":"#1a0903"},{"slug":"observatory","name":"Observatory","appearance":"dark","mood":"calm","line":"Star plates draw while a reticle tracks","description":"A night observatory for T3 Code. A still star field sits behind the chat; while your agent works, a telescope reticle slews, locks on, and a constellation is traced.","site":"https://joshsaintjacque.github.io/t3code-theme-observatory/","repo":"https://github.com/joshsaintjacque/t3code-theme-observatory","swatches":["#0b1029","#0a0f26","#1a2352","#9ec3ff","#e6e9f8"],"accent":"#9ec3ff","accentForeground":"#0a1030"},{"slug":"washi","name":"Washi","appearance":"light","mood":"calm","line":"Ink blooms, and a seal stamps at the end","description":"A paper-and-sumi-ink theme for T3 Code. Ink blooms in the margin while your agent works; a hanko seal is pressed when the turn is done.","site":"https://joshsaintjacque.github.io/t3code-theme-washi/","repo":"https://github.com/joshsaintjacque/t3code-theme-washi","swatches":["#f3eee2","#e9e0cb","#f9f5ea","#b3321f","#28231f"],"accent":"#b3321f","accentForeground":"#fcf7ec"},{"slug":"sandgarden","name":"Sandgarden","appearance":"light","mood":"calm","line":"A rake draws furrows around the stones","description":"Sandgarden is a light theme for T3 Code. Raked sand, quiet stones, moss ink. A rake draws furrows in the margins while the agent works and settles into ripples when it stops.","site":"https://joshsaintjacque.github.io/t3code-theme-sandgarden/","repo":"https://github.com/joshsaintjacque/t3code-theme-sandgarden","swatches":["#f1e9d6","#e7ddc4","#e3d8bc","#4a5e3e","#2b2822"],"accent":"#4a5e3e","accentForeground":"#f7f2e3"},{"slug":"aurora","name":"Aurora","appearance":"dark","mood":"calm","line":"Curtains of light swell overhead","description":"A polar night theme for T3 Code. Slow aurora curtains drift behind the chat, and brighten and ripple while your agent works.","site":"https://joshsaintjacque.github.io/t3code-theme-aurora/","repo":"https://github.com/joshsaintjacque/t3code-theme-aurora","swatches":["#050d14","#070f17","#10213a","#4ff0ab","#e6f2ef"],"accent":"#4ff0ab","accentForeground":"#03130c"},{"slug":"folio","name":"Folio","appearance":"light","mood":"calm","line":"E-paper dots fill in whole steps","description":"Folio is a calm, greyscale reading theme for T3 Code. Warm paper, ink-black type, and a row of dots that fills while your agent works.","site":"https://joshsaintjacque.github.io/t3code-theme-folio/","repo":"https://github.com/joshsaintjacque/t3code-theme-folio","swatches":["#e9e5da","#e5e0d4","#e2dccd","#24221e","#1c1b18"],"accent":"#24221e","accentForeground":"#f4f0e6"},{"slug":"fogbank","name":"Fogbank","appearance":"light","mood":"calm","line":"A lighthouse beam sweeps through mist","description":"Fogbank is a calm, light theme for T3 Code. Pale grey-lilac fog drifts through the margins, and a lighthouse beam sweeps while your agent works.","site":"https://joshsaintjacque.github.io/t3code-theme-fogbank/","repo":"https://github.com/joshsaintjacque/t3code-theme-fogbank","swatches":["#e8e7f0","#dddbea","#dad8ea","#474c8a","#2a2940"],"accent":"#474c8a","accentForeground":"#f7f6fc"},{"slug":"rainglass","name":"Rainglass","appearance":"dark","mood":"calm","line":"Rain thickens on a night window","description":"A rain-on-the-window theme for T3 Code. Slate-blue glass, a bokeh city, and droplets that slide down slowly at idle and more often while your agent works.","site":"https://joshsaintjacque.github.io/t3code-theme-rainglass/","repo":"https://github.com/joshsaintjacque/t3code-theme-rainglass","swatches":["#0f1b2a","#0b1420","#1b3049","#f2b366","#dce8f4"],"accent":"#f2b366","accentForeground":"#1c1206"},{"slug":"darkroom","name":"Darkroom","appearance":"dark","mood":"creative","line":"A print develops under the safelight","description":"A red-safelight darkroom theme for T3 Code. While your agent works, a print develops in the tray and a timer counts. When the turn ends, the print is fixed and everything holds still.","site":"https://joshsaintjacque.github.io/t3code-theme-darkroom/","repo":"https://github.com/joshsaintjacque/t3code-theme-darkroom","swatches":["#170b0c","#110808","#dcc3b6","#ff5a47","#f4e4dd"],"accent":"#ff5a47","accentForeground":"#1a0707"},{"slug":"agar","name":"Agar","appearance":"light","mood":"creative","line":"Colonies grow on culture plates","description":"A lab-culture theme for T3 Code. Notebook paper, amber agar and petri plates. While your agent works, colonies grow outward; at rest, everything holds still.","site":"https://joshsaintjacque.github.io/t3code-theme-agar/","repo":"https://github.com/joshsaintjacque/t3code-theme-agar","swatches":["#f8f4e6","#efd9a0","#dcebe3","#17695c","#2a2316"],"accent":"#17695c","accentForeground":"#f8f4e6"},{"slug":"clerestory","name":"Clerestory","appearance":"dark","mood":"creative","line":"Stained glass kindles and light shafts cross","description":"A stained-glass theme for T3 Code. The nave sits dim at rest; while your agent works, the windows kindle and shafts of light sweep across.","site":"https://joshsaintjacque.github.io/t3code-theme-clerestory/","repo":"https://github.com/joshsaintjacque/t3code-theme-clerestory","swatches":["#16121d","#17131f","#1e2d5e","#f2b84b","#f0e8d8"],"accent":"#f2b84b","accentForeground":"#1a1208"},{"slug":"primary","name":"Primary","appearance":"light","mood":"creative","line":"Bauhaus shapes recompose","description":"A Bauhaus theme for T3 Code: paper, ink, red, yellow and blue. While your agent works, circles, squares and triangles rearrange into a new composition.","site":"https://joshsaintjacque.github.io/t3code-theme-primary/","repo":"https://github.com/joshsaintjacque/t3code-theme-primary","swatches":["#f3eee2","#ece5d3","#1c4fa1","#1c4fa1","#16140f"],"accent":"#1c4fa1","accentForeground":"#ffffff"},{"slug":"phosphor","name":"Phosphor","appearance":"dark","mood":"creative","line":"An oscilloscope traces Lissajous figures","description":"An oscilloscope theme for T3 Code. A flat trace at rest; while your agent works, the scope draws Lissajous figures with a violet afterglow.","site":"https://joshsaintjacque.github.io/t3code-theme-phosphor/","repo":"https://github.com/joshsaintjacque/t3code-theme-phosphor","swatches":["#070f12","#0a1519","#0f2428","#4fe8cc","#d9f4f0"],"accent":"#4fe8cc","accentForeground":"#031412"},{"slug":"contour","name":"Contour","appearance":"light","mood":"creative","line":"Map contours shift, and a pin drops at the end","description":"A topographic survey theme for T3 Code. While your agent works the contours shift elevation; when the turn ends, a survey pin is driven into the summit.","site":"https://joshsaintjacque.github.io/t3code-theme-contour/","repo":"https://github.com/joshsaintjacque/t3code-theme-contour","swatches":["#f3edda","#e7dec2","#e6dcbd","#c0401a","#2b2519"],"accent":"#c0401a","accentForeground":"#fff8ee"}];
+  const DWELL = 11000;
+  const $ = (id) => document.getElementById(id);
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const root = document.documentElement;
+  const video = $("video"), poster = $("poster"), toggle = $("toggle");
+  const rows = new Map([...document.querySelectorAll(".index a")].map((a) => [a.dataset.slug, a]));
+  const cards = new Map([...document.querySelectorAll(".card")].map((c) => [c.dataset.slug, c]));
+  const bySlug = new Map(THEMES.map((t) => [t.slug, t]));
+  const loop = (t) => `assets/loops/${t.slug}.mp4`;
+  const posterUrl = (t) => `assets/posters/${t.slug}.webp`;
+  const moodLabel = (t) => `${t.mood[0].toUpperCase()}${t.mood.slice(1)} · ${t.appearance}`;
+
+  let current = bySlug.get(location.hash.slice(1)) || THEMES[0];
+  let filter = "all", playing = !reduced, cycling = !reduced;
+  let stageVisible = true, wallPreview = false, elapsed = 0, last = 0;
+
+  const visible = () => THEMES.filter((t) => filter === "all" || t.mood === filter || t.appearance === filter);
+
+  function sync() {
+    const run = playing && stageVisible && !wallPreview && !document.hidden;
+    if (run) {
+      if (video.dataset.slug !== current.slug) {
+        video.classList.remove("on");
+        video.dataset.slug = current.slug;
+        video.src = loop(current);
+      }
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+    toggle.textContent = playing ? "Pause" : "Play";
+    toggle.setAttribute("aria-label", `${playing ? "Pause" : "Play"} theme preview`);
+  }
+
+  function show(theme, byUser) {
+    if (byUser) cycling = false;
+    elapsed = 0;
+    rows.forEach((a) => {
+      a.querySelector(".bar").style.transform = "scaleX(0)";
+      if (a.dataset.slug === theme.slug) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
+    });
+    if (theme === current && video.dataset.slug === theme.slug) { sync(); return; }
+    current = theme;
+    video.classList.remove("on");
+    video.pause();
+    poster.src = posterUrl(theme);
+    poster.alt = `${theme.name} theme in T3 Code`;
+    $("name").textContent = theme.name;
+    $("line").textContent = theme.line;
+    $("desc").textContent = theme.description;
+    $("meta").textContent = moodLabel(theme);
+    $("site").href = theme.site;
+    $("repo").href = theme.repo;
+    [...$("strip").children].forEach((el, i) => { el.style.backgroundColor = theme.swatches[i]; });
+    root.style.setProperty("--ac", theme.accent);
+    root.style.setProperty("--acfg", theme.accentForeground);
+    const row = rows.get(theme.slug);
+    const list = row.closest(".index");
+    if (list.scrollWidth > list.clientWidth) {
+      list.scrollTo({ left: row.offsetLeft - (list.clientWidth - row.offsetWidth) / 2, behavior: reduced ? "auto" : "smooth" });
+    }
+    const pool = visible();
+    const next = pool[(pool.indexOf(theme) + 1) % pool.length];
+    if (next) new Image().src = posterUrl(next);
+    sync();
+  }
+
+  video.addEventListener("playing", () => {
+    if (video.dataset.slug === current.slug) video.classList.add("on");
+  });
+
+  function advance() {
+    const pool = visible();
+    show(pool[(pool.indexOf(current) + 1) % pool.length], false);
+  }
+
+  function tick(now) {
+    const dt = Math.min(now - last, 100);
+    last = now;
+    if (cycling && playing && stageVisible && !wallPreview && !document.hidden && !video.paused) {
+      elapsed += dt;
+      const bar = rows.get(current.slug).querySelector(".bar");
+      bar.style.transform = `scaleX(${Math.min(elapsed / DWELL, 1)})`;
+      if (elapsed >= DWELL) advance();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  toggle.addEventListener("click", () => {
+    playing = !playing;
+    if (!playing) cycling = false;
+    sync();
+  });
+
+  // Rows: hover or focus previews. Click opens the page, except on touch, where a tap previews.
+  let hoverTimer;
+  rows.forEach((a) => {
+    const theme = bySlug.get(a.dataset.slug);
+    a.addEventListener("pointerenter", (e) => {
+      if (e.pointerType !== "mouse") return;
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(() => show(theme, true), 70);
+    });
+    a.addEventListener("pointerleave", () => clearTimeout(hoverTimer));
+    a.addEventListener("focus", () => { if (a.matches(":focus-visible")) show(theme, true); });
+    a.addEventListener("click", (e) => {
+      if (canHover || e.metaKey || e.ctrlKey) return;
+      e.preventDefault();
+      show(theme, true);
+      history.replaceState(null, "", `#${theme.slug}`);
+    });
+    a.addEventListener("keydown", (e) => {
+      if (!["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      e.preventDefault();
+      const pool = visible();
+      const step = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : -1;
+      const target = pool[(pool.indexOf(theme) + step + pool.length) % pool.length];
+      rows.get(target.slug).focus();
+    });
+  });
+
+  // Filters
+  document.querySelectorAll("[data-filter]").forEach((button) => {
+    button.addEventListener("click", () => {
+      filter = button.dataset.filter;
+      document.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      const pool = visible();
+      const keep = new Set(pool.map((t) => t.slug));
+      rows.forEach((a, slug) => { a.parentElement.hidden = !keep.has(slug); });
+      cards.forEach((c, slug) => { c.hidden = !keep.has(slug); });
+      $("shown").textContent = `${pool.length} ${pool.length === 1 ? "theme" : "themes"}`;
+      if (!keep.has(current.slug)) show(pool[0], false);
+    });
+  });
+
+  // Wall: hover or focus plays in place with one shared video. A tap on touch sends it to the stage.
+  const wallVideo = document.createElement("video");
+  Object.assign(wallVideo, { muted: true, loop: true, playsInline: true, preload: "none" });
+  wallVideo.setAttribute("aria-hidden", "true");
+  wallVideo.addEventListener("playing", () => wallVideo.classList.add("on"));
+
+  function wallPlay(shot) {
+    if (reduced) return;
+    const theme = bySlug.get(shot.closest(".card").dataset.slug);
+    wallVideo.classList.remove("on");
+    shot.append(wallVideo);
+    wallVideo.src = loop(theme);
+    wallPreview = true;
+    sync();
+    wallVideo.play().catch(() => {});
+  }
+  function wallStop(shot) {
+    if (wallVideo.parentElement !== shot) return;
+    wallVideo.pause();
+    wallVideo.classList.remove("on");
+    wallVideo.remove();
+    wallVideo.removeAttribute("src");
+    wallPreview = false;
+    sync();
+  }
+  document.querySelectorAll(".shot").forEach((shot) => {
+    if (canHover) {
+      shot.addEventListener("pointerenter", () => wallPlay(shot));
+      shot.addEventListener("pointerleave", () => wallStop(shot));
+    }
+    shot.addEventListener("focus", () => { if (shot.matches(":focus-visible")) wallPlay(shot); });
+    shot.addEventListener("blur", () => wallStop(shot));
+    shot.addEventListener("click", (e) => {
+      if (canHover || e.metaKey || e.ctrlKey) return;
+      e.preventDefault();
+      const theme = bySlug.get(shot.closest(".card").dataset.slug);
+      show(theme, true);
+      history.replaceState(null, "", `#${theme.slug}`);
+      document.querySelector(".screen").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  addEventListener("hashchange", () => {
+    const theme = bySlug.get(location.hash.slice(1));
+    if (theme) show(theme, true);
+  });
+  document.addEventListener("visibilitychange", sync);
+  new IntersectionObserver(([entry]) => {
+    stageVisible = entry.isIntersecting;
+    sync();
+  }, { threshold: 0.25 }).observe(document.querySelector(".stage"));
+
+  const initial = current;
+  current = null;
+  if (location.hash && bySlug.has(location.hash.slice(1))) cycling = false;
+  show(initial, false);
+  requestAnimationFrame((now) => { last = now; tick(now); });
+})();
+</script>
+</body>
+</html>

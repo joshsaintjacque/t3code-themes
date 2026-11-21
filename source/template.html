@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Themes for T3 Code</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="theme-color" content="#141416">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Themes for T3 Code">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{URL}}">
+<meta property="og:image" content="{{URL}}assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Themes for T3 Code">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="twitter:image" content="{{URL}}assets/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='16' fill='%232466c3'/%3E%3Crect x='16' width='16' height='16' fill='%23ffd166'/%3E%3Crect y='16' width='16' height='16' fill='%23ef476f'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%2306a77d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=DM+Mono:wght@400;500&display=swap">
+<style>
+@property --ac{syntax:"<color>";inherits:true;initial-value:#ffd166}
+@property --acfg{syntax:"<color>";inherits:true;initial-value:#1d1a10}
+:root{
+  color-scheme:dark;
+  --ink:#141416;--panel:#1d1d20;--line:#303036;--fg:#f4f2ec;--dim:#a9a7a0;
+  --ac:{{FIRST_ACCENT}};--acfg:{{FIRST_ACCENT_FG}};
+  --gutter:clamp(16px,2.4vw,36px);
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  transition:--ac .45s ease,--acfg .45s ease;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.4;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+ol{list-style:none;margin:0;padding:0}
+h1,h2,h3,p{margin:0}
+
+.viewer{position:relative;display:grid;grid-template-columns:minmax(270px,330px) minmax(0,1fr);gap:clamp(24px,3.4vw,56px);padding:var(--gutter);min-height:100svh;isolation:isolate}
+.viewer::before{content:"";position:absolute;z-index:-1;inset:0 0 auto 22%;height:78%;background:radial-gradient(60% 62% at 58% 42%,color-mix(in srgb,var(--ac) 15%,transparent),transparent 72%);pointer-events:none}
+.rail{display:flex;flex-direction:column;gap:18px;min-width:0}
+.title h1{font-size:clamp(30px,2.7vw,38px);line-height:.98;font-weight:750;font-stretch:112%;letter-spacing:-.018em}
+.title h1 span{display:block}
+.title h1 b{display:block;font-size:2.65em;line-height:.86;font-weight:800;font-stretch:125%;letter-spacing:-.045em;margin-bottom:.12em}
+.title p{margin-top:10px;color:var(--dim);font-size:15px;max-width:30ch}
+
+.filters{display:flex;flex-wrap:wrap;gap:4px;margin:0 -2px 10px}
+.filters button{appearance:none;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:4px 7px;font:500 10.5px/1.3 var(--mono);cursor:pointer;transition:color .15s,border-color .15s,background-color .15s}
+.filters button:hover{color:var(--fg);border-color:#55555d}
+.filters button[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--ink)}
+
+.index a{position:relative;display:flex;align-items:center;gap:10px;height:27px;text-decoration:none;color:var(--dim);border-radius:3px;transition:color .14s}
+.chip{flex:none;width:13px;height:13px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.2);background:linear-gradient(135deg,var(--c) 50%,var(--a) 50%)}
+.index .nm{font-size:19px;font-weight:620;font-stretch:72%;letter-spacing:.012em;text-transform:uppercase;white-space:nowrap;transition:font-stretch .22s cubic-bezier(.2,.8,.2,1)}
+.index .md{margin-left:auto;font:400 10.5px var(--mono);color:#85837d;opacity:0;transition:opacity .14s}
+.index a:hover,.index a[aria-current="true"]{color:var(--fg)}
+.index a:hover .md,.index a[aria-current="true"] .md{opacity:1}
+.index a[aria-current="true"] .nm{font-stretch:118%;font-weight:720}
+.index .bar{position:absolute;left:23px;right:0;bottom:1px;height:1px;background:var(--fg);transform:scaleX(0);transform-origin:left;opacity:.75}
+[hidden]{display:none!important}
+
+.screen{min-width:0;max-width:calc((100svh - 188px)*1.96);width:100%;justify-self:center;align-self:start}
+.stage{position:relative;margin:0;aspect-ratio:960/490;overflow:hidden;border-radius:8px 8px 0 0;background:var(--panel);box-shadow:0 24px 70px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.1)}
+.stage img,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.stage video{opacity:0;transition:opacity .28s ease}
+.stage video.on{opacity:1}
+.toggle{position:absolute;z-index:2;right:10px;top:10px;appearance:none;border:0;border-radius:999px;padding:6px 12px;background:rgba(14,14,16,.78);color:#f4f2ec;font:500 11.5px/1.2 var(--mono);cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.toggle:hover{background:#0e0e10}
+.strip{display:flex;height:9px;border-radius:0 0 8px 8px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.strip i{flex:1;transition:background-color .4s ease}
+.caption{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 28px;align-items:start;padding-top:16px}
+.caption h2{font-size:clamp(34px,4.5vw,66px);line-height:.94;font-weight:800;font-stretch:125%;letter-spacing:-.035em;text-transform:uppercase;overflow-wrap:anywhere}
+.meta{font:400 12px var(--mono);color:var(--dim);margin-bottom:7px}
+.line{display:none;color:var(--dim);font-size:16px;margin-top:7px}
+.desc{color:var(--dim);font-size:16px;line-height:1.45;margin-top:9px;max-width:68ch;min-height:4.35em}
+.actions{display:flex;gap:8px;align-self:start;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 17px;border-radius:6px;text-decoration:none;font-weight:680;font-size:15px;font-stretch:96%;white-space:nowrap;transition:transform .14s cubic-bezier(.2,.8,.2,1),background-color .15s}
+.btn:active{transform:scale(.97)}
+.btn.go{background:var(--ac);color:var(--acfg);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.btn.alt{box-shadow:inset 0 0 0 1px #4a4a51}
+.btn.alt:hover{background:#26262a}
+
+.wall{padding:clamp(32px,4vw,56px) var(--gutter) var(--gutter);border-top:1px solid var(--line)}
+.wall-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:20px}
+.wall h2{font-size:clamp(25px,2.4vw,34px);font-weight:760;font-stretch:115%;letter-spacing:-.022em}
+.wall-head span{font:400 12px var(--mono);color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,312px),1fr));gap:30px 20px}
+.card{min-width:0}
+.shot{position:relative;display:block;aspect-ratio:960/490;overflow:hidden;border-radius:6px;background:var(--panel);box-shadow:0 0 0 1px rgba(255,255,255,.1);transition:box-shadow .16s}
+.shot:hover,.shot:focus-visible{box-shadow:0 0 0 1px rgba(255,255,255,.42)}
+.shot img,.shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.shot video{opacity:0;transition:opacity .22s ease}
+.shot video.on{opacity:1}
+.tiles{display:flex;height:4px;margin-top:7px;border-radius:2px;overflow:hidden}
+.tiles i{flex:1}
+.card-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:10px}
+.card h3{font-size:19px;line-height:1.1;font-weight:700;font-stretch:104%;letter-spacing:-.008em}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.tag{flex:none;font:400 11px var(--mono);color:var(--dim)}
+.card p{color:var(--dim);font-size:14.5px;margin-top:3px}
+.links{display:flex;gap:16px;margin-top:6px}
+.links a{display:inline-flex;align-items:center;min-height:32px;font:500 12.5px var(--mono);text-decoration:underline;text-decoration-color:#5c5c63;text-underline-offset:3px;transition:text-decoration-color .14s}
+.links a:hover{text-decoration-color:var(--fg)}
+
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding:24px var(--gutter) 30px;border-top:1px solid var(--line);margin-top:26px;color:var(--dim);font:400 12px/1.5 var(--mono)}
+
+@media (max-width:980px){
+  .viewer{display:flex;flex-direction:column;min-height:0;gap:18px}
+  .rail{display:contents}
+  .title{order:1}.screen{order:2;max-width:none}.picker{order:3;min-width:0}
+  .title h1 span{display:inline}
+  .desc{display:none}.line{display:block}
+  .title h1 b{display:inline;font-size:1em;letter-spacing:-.018em;margin:0;font-stretch:112%;font-weight:750}
+  .title p{max-width:none}
+  .picker{display:flex;flex-direction:column;gap:12px}
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(var(--gutter)*-1);padding:2px var(--gutter)}
+  .filters::-webkit-scrollbar,.index::-webkit-scrollbar{display:none}
+  .filters button{flex:none;padding:7px 12px;font-size:12px}
+  .index{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;scroll-padding:0 var(--gutter);margin:0 calc(var(--gutter)*-1);padding:2px var(--gutter)}
+  .index li{flex:none}
+  .index a{height:40px;padding:0 12px 0 10px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);border-radius:6px;color:var(--fg)}
+  .index a[aria-current="true"]{box-shadow:inset 0 0 0 1.5px var(--fg)}
+  .index .nm,.index a[aria-current="true"] .nm{font-size:16px;font-stretch:82%;font-weight:640}
+  .index .md,.index .bar{display:none}
+  .caption{grid-template-columns:minmax(0,1fr)}
+  .actions{margin-top:6px}
+  .actions .btn{flex:1}
+  .toggle{right:7px;top:7px;padding:5px 9px}
+}
+@media (max-width:560px){
+  .grid{gap:18px}
+  .card{display:grid;grid-template-columns:42% minmax(0,1fr);column-gap:12px}
+  .shot{grid-row:1 / span 4;aspect-ratio:auto;height:100%;min-height:112px}
+  .tiles{display:none}
+  .card-top{margin-top:0}
+  .card h3{font-size:17px}
+  .tag{display:none}
+  .card p{font-size:13.5px;line-height:1.3}
+  .links{margin-top:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  :root{transition:none}
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<main>
+<section class="viewer" aria-label="Theme preview">
+  <div class="rail">
+    <header class="title">
+      <h1><b>{{COUNT}}</b> <span>themes for</span> <span>T3 Code</span></h1>
+      <p>Each one moves with your agent, then settles when the turn is done.</p>
+    </header>
+    <nav class="picker" aria-label="Choose a theme">
+      <div class="filters" role="group" aria-label="Filter themes">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="energetic" aria-pressed="false">Energetic</button>
+        <button type="button" data-filter="calm" aria-pressed="false">Calm</button>
+        <button type="button" data-filter="creative" aria-pressed="false">Creative</button>
+        <button type="button" data-filter="dark" aria-pressed="false">Dark</button>
+        <button type="button" data-filter="light" aria-pressed="false">Light</button>
+      </div>
+      <ol class="index">
+{{ROWS}}
+      </ol>
+    </nav>
+  </div>
+  <div class="screen">
+    <figure class="stage">
+      <img id="poster" src="assets/posters/{{FIRST_SLUG}}.webp" width="960" height="490" alt="{{FIRST_NAME}} theme in T3 Code" fetchpriority="high">
+      <video id="video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+      <button class="toggle" id="toggle" type="button">Pause</button>
+    </figure>
+    <div class="strip" id="strip" aria-hidden="true">{{FIRST_STRIP}}</div>
+    <div class="caption" aria-live="polite">
+      <div>
+        <div class="meta" id="meta">{{FIRST_META}}</div>
+        <h2 id="name">{{FIRST_NAME}}</h2>
+        <p class="desc" id="desc">{{FIRST_DESC}}</p>
+        <p class="line" id="line">{{FIRST_LINE}}</p>
+      </div>
+      <div class="actions">
+        <a class="btn go" id="site" href="{{FIRST_SITE}}">Theme page <span aria-hidden="true">→</span></a>
+        <a class="btn alt" id="repo" href="{{FIRST_REPO}}">Repository</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wall" aria-labelledby="wall-title">
+  <div class="wall-head">
+    <h2 id="wall-title">The full set</h2>
+    <span id="shown">{{COUNT}} themes</span>
+  </div>
+  <div class="grid" id="grid">
+{{CARDS}}
+  </div>
+</section>
+</main>
+<footer>
+  <span>Independent themes, not affiliated with T3 Code.</span>
+  <span><a href="https://github.com/{{OWNER}}/t3code-themes">Source on GitHub</a> · MIT</span>
+</footer>
+
+<script>
+(() => {
+  const THEMES = {{DATA}};
+  const DWELL = 11000;
+  const $ = (id) => document.getElementById(id);
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const root = document.documentElement;
+  const video = $("video"), poster = $("poster"), toggle = $("toggle");
+  const rows = new Map([...document.querySelectorAll(".index a")].map((a) => [a.dataset.slug, a]));
+  const cards = new Map([...document.querySelectorAll(".card")].map((c) => [c.dataset.slug, c]));
+  const bySlug = new Map(THEMES.map((t) => [t.slug, t]));
+  const loop = (t) => `assets/loops/${t.slug}.mp4`;
+  const posterUrl = (t) => `assets/posters/${t.slug}.webp`;
+  const moodLabel = (t) => `${t.mood[0].toUpperCase()}${t.mood.slice(1)} · ${t.appearance}`;
+
+  let current = bySlug.get(location.hash.slice(1)) || THEMES[0];
+  let filter = "all", playing = !reduced, cycling = !reduced;
+  let stageVisible = true, wallPreview = false, elapsed = 0, last = 0;
+
+  const visible = () => THEMES.filter((t) => filter === "all" || t.mood === filter || t.appearance === filter);
+
+  function sync() {
+    const run = playing && stageVisible && !wallPreview && !document.hidden;
+    if (run) {
+      if (video.dataset.slug !== current.slug) {
+        video.classList.remove("on");
+        video.dataset.slug = current.slug;
+        video.src = loop(current);
+      }
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+    toggle.textContent = playing ? "Pause" : "Play";
+    toggle.setAttribute("aria-label", `${playing ? "Pause" : "Play"} theme preview`);
+  }
+
+  function show(theme, byUser) {
+    if (byUser) cycling = false;
+    elapsed = 0;
+    rows.forEach((a) => {
+      a.querySelector(".bar").style.transform = "scaleX(0)";
+      if (a.dataset.slug === theme.slug) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
+    });
+    if (theme === current && video.dataset.slug === theme.slug) { sync(); return; }
+    current = theme;
+    video.classList.remove("on");
+    video.pause();
+    poster.src = posterUrl(theme);
+    poster.alt = `${theme.name} theme in T3 Code`;
+    $("name").textContent = theme.name;
+    $("line").textContent = theme.line;
+    $("desc").textContent = theme.description;
+    $("meta").textContent = moodLabel(theme);
+    $("site").href = theme.site;
+    $("repo").href = theme.repo;
+    [...$("strip").children].forEach((el, i) => { el.style.backgroundColor = theme.swatches[i]; });
+    root.style.setProperty("--ac", theme.accent);
+    root.style.setProperty("--acfg", theme.accentForeground);
+    const row = rows.get(theme.slug);
+    const list = row.closest(".index");
+    if (list.scrollWidth > list.clientWidth) {
+      list.scrollTo({ left: row.offsetLeft - (list.clientWidth - row.offsetWidth) / 2, behavior: reduced ? "auto" : "smooth" });
+    }
+    const pool = visible();
+    const next = pool[(pool.indexOf(theme) + 1) % pool.length];
+    if (next) new Image().src = posterUrl(next);
+    sync();
+  }
+
+  video.addEventListener("playing", () => {
+    if (video.dataset.slug === current.slug) video.classList.add("on");
+  });
+
+  function advance() {
+    const pool = visible();
+    show(pool[(pool.indexOf(current) + 1) % pool.length], false);
+  }
+
+  function tick(now) {
+    const dt = Math.min(now - last, 100);
+    last = now;
+    if (cycling && playing && stageVisible && !wallPreview && !document.hidden && !video.paused) {
+      elapsed += dt;
+      const bar = rows.get(current.slug).querySelector(".bar");
+      bar.style.transform = `scaleX(${Math.min(elapsed / DWELL, 1)})`;
+      if (elapsed >= DWELL) advance();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  toggle.addEventListener("click", () => {
+    playing = !playing;
+    if (!playing) cycling = false;
+    sync();
+  });
+
+  // Rows: hover or focus previews. Click opens the page, except on touch, where a tap previews.
+  let hoverTimer;
+  rows.forEach((a) => {
+    const theme = bySlug.get(a.dataset.slug);
+    a.addEventListener("pointerenter", (e) => {
+      if (e.pointerType !== "mouse") return;
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(() => show(theme, true), 70);
+    });
+    a.addEventListener("pointerleave", () => clearTimeout(hoverTimer));
+    a.addEventListener("focus", () => { if (a.matches(":focus-visible")) show(theme, true); });
+    a.addEventListener("click", (e) => {
+      if (canHover || e.metaKey || e.ctrlKey) return;
+      e.preventDefault();
+      show(theme, true);
+      history.replaceState(null, "", `#${theme.slug}`);
+    });
+    a.addEventListener("keydown", (e) => {
+      if (!["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      e.preventDefault();
+      const pool = visible();
+      const step = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : -1;
+      const target = pool[(pool.indexOf(theme) + step + pool.length) % pool.length];
+      rows.get(target.slug).focus();
+    });
+  });
+
+  // Filters
+  document.querySelectorAll("[data-filter]").forEach((button) => {
+    button.addEventListener("click", () => {
+      filter = button.dataset.filter;
+      document.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      const pool = visible();
+      const keep = new Set(pool.map((t) => t.slug));
+      rows.forEach((a, slug) => { a.parentElement.hidden = !keep.has(slug); });
+      cards.forEach((c, slug) => { c.hidden = !keep.has(slug); });
+      $("shown").textContent = `${pool.length} ${pool.length === 1 ? "theme" : "themes"}`;
+      if (!keep.has(current.slug)) show(pool[0], false);
+    });
+  });
+
+  // Wall: hover or focus plays in place with one shared video. A tap on touch sends it to the stage.
+  const wallVideo = document.createElement("video");
+  Object.assign(wallVideo, { muted: true, loop: true, playsInline: true, preload: "none" });
+  wallVideo.setAttribute("aria-hidden", "true");
+  wallVideo.addEventListener("playing", () => wallVideo.classList.add("on"));
+
+  function wallPlay(shot) {
+    if (reduced) return;
+    const theme = bySlug.get(shot.closest(".card").dataset.slug);
+    wallVideo.classList.remove("on");
+    shot.append(wallVideo);
+    wallVideo.src = loop(theme);
+    wallPreview = true;
+    sync();
+    wallVideo.play().catch(() => {});
+  }
+  function wallStop(shot) {
+    if (wallVideo.parentElement !== shot) return;
+    wallVideo.pause();
+    wallVideo.classList.remove("on");
+    wallVideo.remove();
+    wallVideo.removeAttribute("src");
+    wallPreview = false;
+    sync();
+  }
+  document.querySelectorAll(".shot").forEach((shot) => {
+    if (canHover) {
+      shot.addEventListener("pointerenter", () => wallPlay(shot));
+      shot.addEventListener("pointerleave", () => wallStop(shot));
+    }
+    shot.addEventListener("focus", () => { if (shot.matches(":focus-visible")) wallPlay(shot); });
+    shot.addEventListener("blur", () => wallStop(shot));
+    shot.addEventListener("click", (e) => {
+      if (canHover || e.metaKey || e.ctrlKey) return;
+      e.preventDefault();
+      const theme = bySlug.get(shot.closest(".card").dataset.slug);
+      show(theme, true);
+      history.replaceState(null, "", `#${theme.slug}`);
+      document.querySelector(".screen").scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  addEventListener("hashchange", () => {
+    const theme = bySlug.get(location.hash.slice(1));
+    if (theme) show(theme, true);
+  });
+  document.addEventListener("visibilitychange", sync);
+  new IntersectionObserver(([entry]) => {
+    stageVisible = entry.isIntersecting;
+    sync();
+  }, { threshold: 0.25 }).observe(document.querySelector(".stage"));
+
+  const initial = current;
+  current = null;
+  if (location.hash && bySlug.has(location.hash.slice(1))) cycling = false;
+  show(initial, false);
+  requestAnimationFrame((now) => { last = now; tick(now); });
+})();
+</script>
+</body>
+</html>

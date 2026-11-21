@@ -1,0 +1,422 @@
+[
+  {
+    "slug": "blueprint",
+    "name": "Blueprint",
+    "appearance": "dark",
+    "mood": "creative",
+    "line": "A pen plotter inks a part in the margin",
+    "description": "A cyanotype theme for T3 Code. While your agent works, a pen plotter inks a part in the margin. When the turn ends, the sheet holds still.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-blueprint/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-blueprint",
+    "swatches": [
+      "#2466c3",
+      "#265a9c",
+      "#004f9c",
+      "#ffd166",
+      "#eef6ff"
+    ],
+    "accent": "#ffd166",
+    "accentForeground": "#1d1a10",
+    "canvas": "#2466c3"
+  },
+  {
+    "slug": "misprint",
+    "name": "Misprint",
+    "appearance": "light",
+    "mood": "energetic",
+    "line": "Two ink plates slip out of register",
+    "description": "A two-ink print theme for T3 Code: fluoro pink and teal on cream stock. The inks slip out of register while your agent works and snap back when it stops.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-misprint/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-misprint",
+    "swatches": [
+      "#f5eddb",
+      "#efe4ca",
+      "#ffd6e7",
+      "#ff2e88",
+      "#141a45"
+    ],
+    "accent": "#ff2e88",
+    "accentForeground": "#141a45",
+    "canvas": "#f5eddb"
+  },
+  {
+    "slug": "departures",
+    "name": "Departures",
+    "appearance": "dark",
+    "mood": "energetic",
+    "line": "A split-flap board rattles to BOARDING",
+    "description": "A dark T3 Code theme in black, cream and amber. Flaps rattle while the agent works; the board reads BOARDING, then ON TIME.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-departures/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-departures",
+    "swatches": [
+      "#0d0c0a",
+      "#0a0908",
+      "#ece2c8",
+      "#ffb000",
+      "#f2e9d2"
+    ],
+    "accent": "#ffb000",
+    "accentForeground": "#17110a",
+    "canvas": "#0d0c0a"
+  },
+  {
+    "slug": "reel-to-reel",
+    "name": "Reel to Reel",
+    "appearance": "dark",
+    "mood": "energetic",
+    "line": "VU needles bounce and the reels turn",
+    "description": "A 1970s tape-deck theme for T3 Code. Walnut, brushed aluminium and amber VU meters. While your agent works the reels turn and the needles bounce; when it stops they settle.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-reel-to-reel/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-reel-to-reel",
+    "swatches": [
+      "#1b1511",
+      "#2e1c10",
+      "#3d2517",
+      "#ffb52e",
+      "#f3e7cf"
+    ],
+    "accent": "#ffb52e",
+    "accentForeground": "#1b1206",
+    "canvas": "#1b1511"
+  },
+  {
+    "slug": "squiggle",
+    "name": "Squiggle",
+    "appearance": "light",
+    "mood": "energetic",
+    "line": "Memphis confetti bobs and tumbles",
+    "description": "A loud, light theme for T3 Code. Confetti, squiggles and terrazzo sit in the margins and start to bob and tumble while your agent works.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-squiggle/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-squiggle",
+    "swatches": [
+      "#f6f2ff",
+      "#ffee9a",
+      "#ffffff",
+      "#2f3cff",
+      "#1b1340"
+    ],
+    "accent": "#2f3cff",
+    "accentForeground": "#ffffff",
+    "canvas": "#f6f2ff"
+  },
+  {
+    "slug": "molten",
+    "name": "Molten",
+    "appearance": "dark",
+    "mood": "energetic",
+    "line": "Wax lamps heat up and rise",
+    "description": "A wax lamp theme for T3 Code. Deep violet glass, orange and magenta wax that drifts at idle and rises and merges while your agent works.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-molten/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-molten",
+    "swatches": [
+      "#170a2b",
+      "#1c0c35",
+      "#4b1b77",
+      "#ff8a3d",
+      "#f8eefc"
+    ],
+    "accent": "#ff8a3d",
+    "accentForeground": "#2a0d03",
+    "canvas": "#170a2b"
+  },
+  {
+    "slug": "marquee",
+    "name": "Marquee",
+    "appearance": "dark",
+    "mood": "energetic",
+    "line": "House lights dim and the bulbs chase",
+    "description": "A theatre-marquee theme for T3 Code. Oxblood velvet and gilt, with a bulb chase that runs while your agent works and house lights that dim when a turn starts.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-marquee/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-marquee",
+    "swatches": [
+      "#2b0a11",
+      "#1e070c",
+      "#4a1320",
+      "#e9b948",
+      "#f7ebd5"
+    ],
+    "accent": "#e9b948",
+    "accentForeground": "#2a0a10",
+    "canvas": "#2b0a11"
+  },
+  {
+    "slug": "tilt",
+    "name": "Tilt",
+    "appearance": "dark",
+    "mood": "energetic",
+    "line": "Pinball lights run and the score counts up",
+    "description": "A pinball playfield theme for T3 Code. Idle runs a slow attract glow. While your agent works the inserts strobe, the ladder fills and the score reels tick. Done returns the ball to the lane.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-tilt/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-tilt",
+    "swatches": [
+      "#0c0f1f",
+      "#0a0d1b",
+      "#1b2250",
+      "#ff5a36",
+      "#eef1fb"
+    ],
+    "accent": "#ff5a36",
+    "accentForeground": "#1a0903",
+    "canvas": "#0c0f1f"
+  },
+  {
+    "slug": "observatory",
+    "name": "Observatory",
+    "appearance": "dark",
+    "mood": "calm",
+    "line": "Star plates draw while a reticle tracks",
+    "description": "A night observatory for T3 Code. A still star field sits behind the chat; while your agent works, a telescope reticle slews, locks on, and a constellation is traced.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-observatory/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-observatory",
+    "swatches": [
+      "#0b1029",
+      "#0a0f26",
+      "#1a2352",
+      "#9ec3ff",
+      "#e6e9f8"
+    ],
+    "accent": "#9ec3ff",
+    "accentForeground": "#0a1030",
+    "canvas": "#0b1029"
+  },
+  {
+    "slug": "washi",
+    "name": "Washi",
+    "appearance": "light",
+    "mood": "calm",
+    "line": "Ink blooms, and a seal stamps at the end",
+    "description": "A paper-and-sumi-ink theme for T3 Code. Ink blooms in the margin while your agent works; a hanko seal is pressed when the turn is done.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-washi/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-washi",
+    "swatches": [
+      "#f3eee2",
+      "#e9e0cb",
+      "#f9f5ea",
+      "#b3321f",
+      "#28231f"
+    ],
+    "accent": "#b3321f",
+    "accentForeground": "#fcf7ec",
+    "canvas": "#f3eee2"
+  },
+  {
+    "slug": "sandgarden",
+    "name": "Sandgarden",
+    "appearance": "light",
+    "mood": "calm",
+    "line": "A rake draws furrows around the stones",
+    "description": "Sandgarden is a light theme for T3 Code. Raked sand, quiet stones, moss ink. A rake draws furrows in the margins while the agent works and settles into ripples when it stops.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-sandgarden/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-sandgarden",
+    "swatches": [
+      "#f1e9d6",
+      "#e7ddc4",
+      "#e3d8bc",
+      "#4a5e3e",
+      "#2b2822"
+    ],
+    "accent": "#4a5e3e",
+    "accentForeground": "#f7f2e3",
+    "canvas": "#f1e9d6"
+  },
+  {
+    "slug": "aurora",
+    "name": "Aurora",
+    "appearance": "dark",
+    "mood": "calm",
+    "line": "Curtains of light swell overhead",
+    "description": "A polar night theme for T3 Code. Slow aurora curtains drift behind the chat, and brighten and ripple while your agent works.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-aurora/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-aurora",
+    "swatches": [
+      "#050d14",
+      "#070f17",
+      "#10213a",
+      "#4ff0ab",
+      "#e6f2ef"
+    ],
+    "accent": "#4ff0ab",
+    "accentForeground": "#03130c",
+    "canvas": "#050d14"
+  },
+  {
+    "slug": "folio",
+    "name": "Folio",
+    "appearance": "light",
+    "mood": "calm",
+    "line": "E-paper dots fill in whole steps",
+    "description": "Folio is a calm, greyscale reading theme for T3 Code. Warm paper, ink-black type, and a row of dots that fills while your agent works.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-folio/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-folio",
+    "swatches": [
+      "#e9e5da",
+      "#e5e0d4",
+      "#e2dccd",
+      "#24221e",
+      "#1c1b18"
+    ],
+    "accent": "#24221e",
+    "accentForeground": "#f4f0e6",
+    "canvas": "#e9e5da"
+  },
+  {
+    "slug": "fogbank",
+    "name": "Fogbank",
+    "appearance": "light",
+    "mood": "calm",
+    "line": "A lighthouse beam sweeps through mist",
+    "description": "Fogbank is a calm, light theme for T3 Code. Pale grey-lilac fog drifts through the margins, and a lighthouse beam sweeps while your agent works.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-fogbank/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-fogbank",
+    "swatches": [
+      "#e8e7f0",
+      "#dddbea",
+      "#dad8ea",
+      "#474c8a",
+      "#2a2940"
+    ],
+    "accent": "#474c8a",
+    "accentForeground": "#f7f6fc",
+    "canvas": "#e8e7f0"
+  },
+  {
+    "slug": "rainglass",
+    "name": "Rainglass",
+    "appearance": "dark",
+    "mood": "calm",
+    "line": "Rain thickens on a night window",
+    "description": "A rain-on-the-window theme for T3 Code. Slate-blue glass, a bokeh city, and droplets that slide down slowly at idle and more often while your agent works.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-rainglass/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-rainglass",
+    "swatches": [
+      "#0f1b2a",
+      "#0b1420",
+      "#1b3049",
+      "#f2b366",
+      "#dce8f4"
+    ],
+    "accent": "#f2b366",
+    "accentForeground": "#1c1206",
+    "canvas": "#0f1b2a"
+  },
+  {
+    "slug": "darkroom",
+    "name": "Darkroom",
+    "appearance": "dark",
+    "mood": "creative",
+    "line": "A print develops under the safelight",
+    "description": "A red-safelight darkroom theme for T3 Code. While your agent works, a print develops in the tray and a timer counts. When the turn ends, the print is fixed and everything holds still.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-darkroom/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-darkroom",
+    "swatches": [
+      "#170b0c",
+      "#110808",
+      "#dcc3b6",
+      "#ff5a47",
+      "#f4e4dd"
+    ],
+    "accent": "#ff5a47",
+    "accentForeground": "#1a0707",
+    "canvas": "#170b0c"
+  },
+  {
+    "slug": "agar",
+    "name": "Agar",
+    "appearance": "light",
+    "mood": "creative",
+    "line": "Colonies grow on culture plates",
+    "description": "A lab-culture theme for T3 Code. Notebook paper, amber agar and petri plates. While your agent works, colonies grow outward; at rest, everything holds still.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-agar/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-agar",
+    "swatches": [
+      "#f8f4e6",
+      "#efd9a0",
+      "#dcebe3",
+      "#17695c",
+      "#2a2316"
+    ],
+    "accent": "#17695c",
+    "accentForeground": "#f8f4e6",
+    "canvas": "#f8f4e6"
+  },
+  {
+    "slug": "clerestory",
+    "name": "Clerestory",
+    "appearance": "dark",
+    "mood": "creative",
+    "line": "Stained glass kindles and light shafts cross",
+    "description": "A stained-glass theme for T3 Code. The nave sits dim at rest; while your agent works, the windows kindle and shafts of light sweep across.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-clerestory/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-clerestory",
+    "swatches": [
+      "#16121d",
+      "#17131f",
+      "#1e2d5e",
+      "#f2b84b",
+      "#f0e8d8"
+    ],
+    "accent": "#f2b84b",
+    "accentForeground": "#1a1208",
+    "canvas": "#16121d"
+  },
+  {
+    "slug": "primary",
+    "name": "Primary",
+    "appearance": "light",
+    "mood": "creative",
+    "line": "Bauhaus shapes recompose",
+    "description": "A Bauhaus theme for T3 Code: paper, ink, red, yellow and blue. While your agent works, circles, squares and triangles rearrange into a new composition.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-primary/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-primary",
+    "swatches": [
+      "#f3eee2",
+      "#ece5d3",
+      "#1c4fa1",
+      "#1c4fa1",
+      "#16140f"
+    ],
+    "accent": "#1c4fa1",
+    "accentForeground": "#ffffff",
+    "canvas": "#f3eee2"
+  },
+  {
+    "slug": "phosphor",
+    "name": "Phosphor",
+    "appearance": "dark",
+    "mood": "creative",
+    "line": "An oscilloscope traces Lissajous figures",
+    "description": "An oscilloscope theme for T3 Code. A flat trace at rest; while your agent works, the scope draws Lissajous figures with a violet afterglow.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-phosphor/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-phosphor",
+    "swatches": [
+      "#070f12",
+      "#0a1519",
+      "#0f2428",
+      "#4fe8cc",
+      "#d9f4f0"
+    ],
+    "accent": "#4fe8cc",
+    "accentForeground": "#031412",
+    "canvas": "#070f12"
+  },
+  {
+    "slug": "contour",
+    "name": "Contour",
+    "appearance": "light",
+    "mood": "creative",
+    "line": "Map contours shift, and a pin drops at the end",
+    "description": "A topographic survey theme for T3 Code. While your agent works the contours shift elevation; when the turn ends, a survey pin is driven into the summit.",
+    "site": "https://joshsaintjacque.github.io/t3code-theme-contour/",
+    "repo": "https://github.com/joshsaintjacque/t3code-theme-contour",
+    "swatches": [
+      "#f3edda",
+      "#e7dec2",
+      "#e6dcbd",
+      "#c0401a",
+      "#2b2519"
+    ],
+    "accent": "#c0401a",
+    "accentForeground": "#fff8ee",
+    "canvas": "#f3edda"
+  }
+]
